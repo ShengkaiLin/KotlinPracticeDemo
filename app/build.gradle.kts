@@ -1,9 +1,8 @@
-import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("com.google.devtools.ksp")
+    //id("com.google.devtools.ksp")
+    id("kotlin-kapt")
 }
 
 android {
@@ -59,7 +58,8 @@ dependencies {
     val room_version = "2.6.1"
 
     implementation("androidx.room:room-runtime:$room_version")
-    ksp("androidx.room:room-compiler:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+    implementation ("androidx.room:room-ktx:$room_version")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
 }
